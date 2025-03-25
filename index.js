@@ -8,7 +8,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://localhost:5173"], // Frontend local por ahora
+    origin: ["http://localhost:5173", "https://mini-x-app.netlify.app"], // Frontend local por ahora
     methods: ["GET", "POST"],
   },
 });
