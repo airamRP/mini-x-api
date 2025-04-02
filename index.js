@@ -1,4 +1,10 @@
-require('dotenv').config()
+// Cargar dotenv solo si está disponible (desarrollo local)
+try {
+  require("dotenv").config();
+} catch (e) {
+  console.log("dotenv no disponible, usando variables de entorno directamente");
+}
+
 
 const express = require("express");
 const { createServer } = require("http");
