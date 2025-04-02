@@ -130,8 +130,11 @@ io.on("connection", async (socket) => {
   });
 
   socket.on("disconnect", () => {
-    connectedUsers.delete(socket.id);
-    console.log("Usuario desconectado:", socket.id);
+    const userId = connectedUsers.get(socket.id);
+    if (userId) {
+      connectedUsers.delete(socket.id);
+      console.log(`Usuario desconectado: ${socket.id}, nickname liberado`);
+    }
   });
 });
 
